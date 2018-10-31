@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>    
+<!DOCTYPE hibernate-mapping PUBLIC    
+          "-//Hibernate/Hibernate Mapping DTD 5.3//EN"    
+          "http://hibernate.sourceforge.net/hibernate-mapping-5.3.dtd"> 
+
+<hibernate-mapping>
+
+    <class name="com.ideas2it.dvdStore.model.Category" table="CATEGORY">
+
+        <meta attribute = "class-description">
+            This class contains the category details. 
+        </meta>
+
+        <id name="id" type="int">
+            <column name="CATEGORY_ID" not-null="true" />
+            <generator class="increment" />
+        </id>
+        <property name="name" column="CATEGORY" not-null="true" />
+        <property name="status" column="ISACTIVE" not-null="true" />
+
+        <set name="dvds" table="DVD_CATEGORY" lazy="false">
+            <key column="CATEGORY_ID" />  
+            <many-to-many class="com.ideas2it.dvdStore.model.Dvd" 
+                    column="DVD_ID" >
+                <filter name="statusDvdFilter" condition="ISACTIVE = :status"/>
+            </many-to-many>
+        </set>  
+
+    </class>
+
+    <filter-def name="statusDvdFilter" >
+        <filter-param name="status" type="boolean"/>
+    </filter-def>
+
+</hibernate-mapping>

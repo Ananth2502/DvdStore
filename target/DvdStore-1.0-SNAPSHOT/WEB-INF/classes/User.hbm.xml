@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>    
+<!DOCTYPE hibernate-mapping PUBLIC    
+          "-//Hibernate/Hibernate Mapping DTD 5.3//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-5.3.dtd"> 
+
+<hibernate-mapping>
+
+    <class name="com.ideas2it.dvdStore.model.User" table="USER">
+
+        <meta attribute = "class-description">
+            This class contains the login details.
+        </meta>
+
+        <id name="id" type="int">
+            <column name="ID" not-null="true" />
+            <generator class="increment" />
+        </id>
+        <property name="userId" column="USER_ID" not-null="true" />
+        <property name="customerId" column="CUSTOMER_ID" type="int"/>
+        <property name="password" column="PASSWORD" not-null="true" />
+        <property name="role" column="ROLE" not-null="true" />
+
+    </class>
+
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>    
+<!DOCTYPE hibernate-mapping PUBLIC    
+          "-//Hibernate/Hibernate Mapping DTD 5.3//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-5.3.dtd"> 
+
+<hibernate-mapping>
+
+    <class name="com.ideas2it.dvdStore.model.Address" table="ADDRESS">
+
+        <meta attribute = "class-description">
+            This class contains the Address details.
+        </meta>
+
+        <id name="id" type="int">
+            <column name="ADDRESS_ID" not-null="true" />
+            <generator class="increment" />
+        </id>
+
+        <property name="customerId" column="CUSTOMER_ID" type="int"/>
+        <property name="Street" column="STREET" not-null="true" />
+        <property name="city" column="CITY" not-null="true" />
+        <property name="state" column="STATE" not-null="true" />
+        <property name="pincode" column="PINCODE" not-null="true" />
+
+    </class>
+
+</hibernate-mapping>
