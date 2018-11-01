@@ -106,7 +106,7 @@
                 <tr>
                     <td></td>
                     <td>
-                        <button type="submit" class="btn btn-success" name="login" formmethod="Post"
+                        <button type="submit" class="btn btn-success" name="login" formmethod="Get"
                             formaction="/SignIn" value="login" >login</button>
                     </td>
                 </tr>

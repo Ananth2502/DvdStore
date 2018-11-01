@@ -225,9 +225,6 @@ public class UserController extends HttpServlet {
         ModelAndView modelAndView = new ModelAndView();
         try {
             User user = new User();
-System.out.println(request.getParameter("userId"));
-System.out.println(request.getParameter(DvdConstants.LABEL_PASSWORD));
-System.out.println("admin");
             user.setUserId(request.getParameter("userId"));
             user.setPassword(request.getParameter(DvdConstants.LABEL_PASSWORD));
             user.setRole("ADMIN");
