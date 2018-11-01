@@ -132,6 +132,20 @@ public class CustomerController extends HttpServlet {
         return modelAndView;
     }
 
+    /**
+     * <p>
+     * This method is used to search customer from dvdstore based on mobile..
+     *        If customer exists, customer will show in customerdisplay page.
+     *
+     * @param mobile
+     *        needed for which customer want to show from dvdstore
+     * 
+     * @return ModelAndView
+     *        ModelAndView is an object that holds both the model and view. In 
+     *        this method "CustomerSearch" is the view name and message
+     *        is the model.
+     * </p>
+     */
     @RequestMapping(value="searchCustomerByMobile",method = RequestMethod.POST)
     public ModelAndView searchCustomerByMobile(@RequestParam("mobile") 
             String mobile) {
@@ -155,6 +169,16 @@ public class CustomerController extends HttpServlet {
         return modelAndView;
     }
 
+    /**
+     * <p>
+     * This method is used to display all available customers in the dvdstore
+     *
+     * @return ModelAndView
+     *        ModelAndView is an object that holds both the model and view. In 
+     *        this method "CustomerDisplay" is the view name and set of customer
+     *        is the model.
+     * </p>
+     */
     @RequestMapping(value="displayAllCustomers",method = RequestMethod.POST)
     public ModelAndView displayAllCustomers() {
         ModelAndView modelAndView = new ModelAndView();
@@ -175,6 +199,16 @@ public class CustomerController extends HttpServlet {
         return modelAndView;
     }
 
+    /**
+     * <p>
+     * This method is used to display particular customers in the dvdstore
+     *
+     * @return ModelAndView
+     *        ModelAndView is an object that holds both the model and view. In 
+     *        this method "ViewAddress" is the view name and  customer
+     *        is the model.
+     * </p>
+     */
     @RequestMapping(value="CustomerDetail",method = RequestMethod.POST)
     public ModelAndView displayCustomer(@RequestParam("id") String id) {
         ModelAndView modelAndView = new ModelAndView();
@@ -187,6 +221,16 @@ public class CustomerController extends HttpServlet {
         return modelAndView;
     }
 
+    /**
+     * <p>
+     * This method is used to display all available customers in the dvdstore
+     *
+     * @return ModelAndView
+     *        ModelAndView is an object that holds both the model and view. In 
+     *        this method "OrdersDisplay" is the view name and set of orders
+     *        is the model.
+     * </p>
+     */
     @RequestMapping(value="displayAllOrders",method = RequestMethod.POST)
     public ModelAndView displayAllOrders() {
         ModelAndView modelAndView = new ModelAndView();
@@ -206,6 +250,15 @@ public class CustomerController extends HttpServlet {
         return modelAndView;
     }
 
+    /**
+     * <p>
+     * This method is used to display particular customer order details
+     * @return ModelAndView
+     *        ModelAndView is an object that holds both the model and view. In 
+     *        this method "OrdersDisplay" is the view name and set of orders
+     *        and customer is the model.
+     * </p>
+     */
     @RequestMapping(value="myOrders",method = RequestMethod.POST)
     public ModelAndView viewOrdersList( HttpServletRequest request) {
         HttpSession session=request.getSession(false);  
@@ -228,6 +281,16 @@ public class CustomerController extends HttpServlet {
         return modelAndView;
     }
 
+    /**
+     * <p>
+     * This method is used to cancel particular customer order details
+     *
+     * @return ModelAndView
+     *        ModelAndView is an object that holds both the model and view. In 
+     *        this method "OrdersDisplay" is the view name and set of orders
+     *        and customer is the model.
+     * </p>
+     */
     @RequestMapping(value="cancelOrder",method = RequestMethod.POST)
     public ModelAndView cancelOrder(HttpServletRequest request,
             @RequestParam("id") String id) {
@@ -252,6 +315,16 @@ public class CustomerController extends HttpServlet {
         return viewOrdersList(request);
     }
 
+    /**
+     * <p>
+     * This method is used to show dvds for customer want to purchase...
+     *
+     * @return ModelAndView
+     *        ModelAndView is an object that holds both the model and view. In 
+     *        this method "DvdDisplay" is the view name and list of address
+     *        and set of dvds is the model.
+     * </p>
+     */
    @RequestMapping(value="purchaseDvd",method = RequestMethod.POST)
    public ModelAndView purchaseDvd(HttpServletRequest request) {
         HttpSession session=request.getSession(false);  
@@ -277,6 +350,16 @@ public class CustomerController extends HttpServlet {
         return modelAndView;
     }
 
+    /**
+     * <p>
+     * This method is used to place order for customer want to purchase...
+     *
+     * @return ModelAndView
+     *        ModelAndView is an object that holds both the model and view. In 
+     *        this method "OrdersDisplay" is the view name and set of orders
+     *        and customer is the model.
+     * </p>
+     */
    @RequestMapping(value="placeOrder",method = RequestMethod.POST)
     public ModelAndView placeOrder(HttpServletRequest request) {
         HttpSession session=request.getSession(false);  
@@ -320,6 +403,16 @@ public class CustomerController extends HttpServlet {
         return viewOrdersList(request);
     }
 
+    /**
+     * <p>
+     * This method is used to show particular customer details.. 
+     *
+     * @return ModelAndView
+     *        ModelAndView is an object that holds both the model and view. In 
+     *        this method "CustomerUpdate" is the view name and address
+     *        and customer is the model.
+     * </p>
+     */
    @RequestMapping(value="myAccount",method = RequestMethod.POST)
     public ModelAndView modifyAccount(HttpServletRequest request) {
         HttpSession session=request.getSession(false);  
@@ -338,12 +431,22 @@ public class CustomerController extends HttpServlet {
         return modelAndView;
     }
 
+    /**
+     * <p>
+     * This method is used to update particular customer details based on 
+     * customer choice.. 
+     *
+     * @return ModelAndView
+     *        ModelAndView is an object that holds both the model and view. In 
+     *        this method "CustomerUpdate" is the view name and address
+     *        and customer is the model.
+     * </p>
+     */
    @RequestMapping(value="updateCustomer",method = RequestMethod.POST)
     public ModelAndView updateCustomerDetails(@ModelAttribute("customer")
             Customer customer, HttpServletRequest request ) {
         ModelAndView modelAndView = new ModelAndView();
         HttpSession session=request.getSession(false);  
-System.out.println(session.getAttribute("userid"));
         Integer id = (Integer)session.getAttribute("userid");  
         try {
             customer.setId(id);
@@ -367,6 +470,17 @@ System.out.println(session.getAttribute("userid"));
         return modelAndView;
     }
 
+    /**
+     * <p>
+     * This method is used to update particular customer address detail based on 
+     * customer choice.. 
+     *
+     * @return ModelAndView
+     *        ModelAndView is an object that holds both the model and view. In 
+     *        this method "CustomerUpdate" is the view name and address
+     *        and customer is the model.
+     * </p>
+     */
    @RequestMapping(value="updateAddress",method = RequestMethod.POST)
     public ModelAndView updateAddress(@ModelAttribute("address") 
             Address address, HttpServletRequest request ) {
@@ -403,6 +517,17 @@ System.out.println(session.getAttribute("userid"));
         return modelAndView;
     }
 
+    /**
+     * <p>
+     * This method is used to insert new customer address detail based on 
+     * customer choice.. 
+     *
+     * @return ModelAndView
+     *        ModelAndView is an object that holds both the model and view. In 
+     *        this method "CustomerUpdate" is the view name and address
+     *        and customer is the model.
+     * </p>
+     */
     @RequestMapping(value="addAddress",method = RequestMethod.POST)
     public ModelAndView addAddress(@ModelAttribute("newAddress")
             Address address, HttpServletRequest request ) {
@@ -422,6 +547,7 @@ System.out.println(session.getAttribute("userid"));
             Customer customer = customerService.getCustomerById
                 (id, Boolean.TRUE);
             modelAndView.addObject("customer",customer);
+            modelAndView.addObject("newAddress", new Address());
         } catch (DvdException e) {
             modelAndView.addObject(DvdConstants.STATUS,DvdConstants.FAIL);
             modelAndView.addObject(DvdConstants.MESSAGE, e.getMessage());
@@ -430,6 +556,17 @@ System.out.println(session.getAttribute("userid"));
         return modelAndView;
     }
 
+    /**
+     * <p>
+     * This method is used to delete customer address detail based on 
+     * customer choice.. 
+     *
+     * @return ModelAndView
+     *        ModelAndView is an object that holds both the model and view. In 
+     *        this method "CustomerUpdate" is the view name and address
+     *        and customer is the model.
+     * </p>
+     */
     @RequestMapping(value="deleteAddress",method = RequestMethod.POST)
     public ModelAndView deleteAddress(@RequestParam("addressId") 
             Integer addressId, HttpServletRequest request) {

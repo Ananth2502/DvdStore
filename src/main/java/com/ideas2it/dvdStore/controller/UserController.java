@@ -4,16 +4,6 @@ import java.util.LinkedHashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-import com.ideas2it.dvdStore.common.DvdConstants;
-import com.ideas2it.dvdStore.model.Address;
-import com.ideas2it.dvdStore.model.Customer;
-import com.ideas2it.dvdStore.model.User;
-import com.ideas2it.dvdStore.exception.DvdException;
-import com.ideas2it.dvdStore.service.CustomerService;
-import com.ideas2it.dvdStore.service.UserService;
-import com.ideas2it.dvdStore.service.impl.CustomerServiceImpl;
-import com.ideas2it.dvdStore.service.impl.UserServiceImpl;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -33,6 +23,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;  
 import org.springframework.web.bind.annotation.RequestMethod;  
 import org.springframework.web.servlet.ModelAndView;  
+
+import com.ideas2it.dvdStore.common.DvdConstants;
+import com.ideas2it.dvdStore.model.Address;
+import com.ideas2it.dvdStore.model.Customer;
+import com.ideas2it.dvdStore.model.User;
+import com.ideas2it.dvdStore.exception.DvdException;
+import com.ideas2it.dvdStore.service.CustomerService;
+import com.ideas2it.dvdStore.service.UserService;
+import com.ideas2it.dvdStore.service.impl.CustomerServiceImpl;
+import com.ideas2it.dvdStore.service.impl.UserServiceImpl;
 
 /**
  *<p>
